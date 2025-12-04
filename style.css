@@ -1,13 +1,21 @@
-body {
-    font-family: sans-serif;
-    margin: 0 auto;
-    max-width: 800px;
+/* style.css の例 */
+/* ... 既存のスタイル ... */
+
+.diary-entry {
+    margin-bottom: 40px; /* 各日記エントリの下に間隔を空ける */
     padding: 20px;
-    background-color: #f4f4f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
 }
-header {
-    text-align: center;
-    padding: 20px 0;
-    border-bottom: 2px solid #ccc;
+.diary-entry h2 {
+    color: #4CAF50; /* 日付の強調色 */
+    border-bottom: none;
+    padding-bottom: 0;
 }
-/* 他に必要なスタイルを追加 */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 40px 0;
+}
