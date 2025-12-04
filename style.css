@@ -1,21 +1,49 @@
-/* style.css の例 */
-/* ... 既存のスタイル ... */
+/* style.css */
 
-.diary-entry {
-    margin-bottom: 40px; /* 各日記エントリの下に間隔を空ける */
+/* 1. 全体（body）の背景と基本の文字色を設定 */
+body {
+    /* 背景色: 薄いグレー */
+    background-color: #f0f0f0; 
+    /* 基本の文字色: 濃いグレー */
+    color: #333333; 
+    
+    /* 以下は前回の基本的な設定 */
+    font-family: sans-serif;
+    margin: 0 auto;
+    max-width: 800px;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #ffffff;
 }
-.diary-entry h2 {
-    color: #4CAF50; /* 日付の強調色 */
-    border-bottom: none;
-    padding-bottom: 0;
+
+/* 2. 見出しやリンクの色を調整（オプション） */
+h1, h2 {
+    color: #333333; /* 見出しも濃いグレーに */
 }
+
+/* リンクの色を強調したい場合は、少し濃い色にします */
+a {
+    color: #555555;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* 日記エントリ間の区切り線（薄い背景に合うように調整） */
 hr {
     border: 0;
     height: 1px;
-    background: #ccc;
+    background: #cccccc; /* やや薄めの線 */
     margin: 40px 0;
 }
+
+/* 前回の日記エントリのスタイルがあれば、それも色を調整 */
+.diary-entry {
+    margin-bottom: 40px;
+    padding: 20px;
+    /* 日記エントリ自体の背景を白（#ffffff）にすると、見やすくなります */
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0; /* 薄い枠線 */
+    border-radius: 5px;
+}
+
+/* ...その他のスタイル... */
