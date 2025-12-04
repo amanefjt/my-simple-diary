@@ -21,7 +21,7 @@ h1, h2 {
 
 /* リンクの色を強調したい場合は、少し濃い色にします */
 a {
-    color: #555555;
+    color: #333333;
     text-decoration: none;
 }
 a:hover {
