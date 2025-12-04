@@ -32,7 +32,7 @@ h1 {
     margin-bottom: 40px;
     padding: 20px;
     /* 日記エントリ自体の背景を白にすると、薄いグレーの背景とコントラストがついて見やすくなります */
-    background-color: #ffffff; 
+    background-color: #cccccc; 
     border: 1px solid #e0e0e0; /* 薄い枠線 */
     border-radius: 5px;
 }
@@ -40,11 +40,10 @@ h1 {
 /* 4. 日付 (H2) のスタイル */
 .diary-entry h2 {
     /* 日付のフォントサイズを本文より少しだけ大きく、目立ちすぎないように */
-    font-size: 1.1em; 
+    font-size: 1.2em; 
     /* 太さを標準に戻す */
     font-weight: normal; 
-    
-    color: #555555; /* 本文より少し濃い色 */
+    color: #333333; 
     
     /* 下線やパディングを削除 */
     border-bottom: none;
