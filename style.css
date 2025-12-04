@@ -89,3 +89,35 @@ blockquote {
     /* 右側も少し内側に入れる */
     margin-right: 3em;
 }
+
+
+/* 9. スマートフォン対応 (@media query) */
+@media (max-width: 600px) {
+    
+    /* 1. 全体のパディングを調整 */
+    body {
+        /* 左右のパディングを減らす */
+        padding: 10px; 
+    }
+
+    /* 2. タイトルのフォントサイズを小さくする */
+    h1 {
+        font-size: 1.5em; /* PCでの2emから小さくする */
+    }
+
+    /* 3. 日記エントリの内部パディングを調整 */
+    .diary-entry {
+        padding: 15px;
+    }
+
+    /* 4. 日付のフォントサイズを微調整 */
+    .diary-entry h2 {
+        font-size: 1.1em;
+    }
+
+    /* 5. 引用（blockquote）のインデントを減らす */
+    blockquote {
+        margin-left: 1.5em; /* PCでの3emから減らす */
+        margin-right: 1.5em;
+    }
+}
