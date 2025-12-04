@@ -32,8 +32,7 @@ h1 {
     margin-bottom: 40px;
     padding: 20px;
     /* 日記エントリ自体の背景を白にすると、薄いグレーの背景とコントラストがついて見やすくなります */
-    background-color: #cccccc; 
-    border: 1px solid #e0e0e0; /* 薄い枠線 */
+    background-color: #f0f0f0; 
     border-radius: 5px;
 }
 
