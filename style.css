@@ -80,3 +80,9 @@ footer {
     color: #aaaaaa; /* フッターの文字色は薄くする */
     font-size: 0.8em;
 }
+blockquote {
+    /* 左マージンで全体をインデント */
+    margin-left: 3em;
+    /* 右側も少し内側に入れる */
+    margin-right: 3em;
+}
