@@ -1,49 +1,86 @@
-/* style.css */
+/* style.css - シンプル日記のスタイル */
 
-/* 1. 全体（body）の背景と基本の文字色を設定 */
+/* 1. 全体設定 (Body) */
 body {
     /* 背景色: 薄いグレー */
     background-color: #f0f0f0; 
     /* 基本の文字色: 濃いグレー */
     color: #333333; 
     
-    /* 以下は前回の基本的な設定 */
     font-family: sans-serif;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 800px; /* 日記の最大幅 */
     padding: 20px;
 }
 
-/* 2. 見出しやリンクの色を調整（オプション） */
-h1, h2 {
-    color: #333333; /* 見出しも濃いグレーに */
+/* 2. ヘッダー (タイトル) */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #cccccc; /* 薄い区切り線 */
+    margin-bottom: 40px;
 }
 
-/* リンクの色を強調したい場合は、少し濃い色にします */
-a {
+h1 {
+    /* メインタイトルはそのまま濃いグレー */
     color: #333333;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+    font-size: 2em;
 }
 
-/* 日記エントリ間の区切り線（薄い背景に合うように調整） */
-hr {
-    border: 0;
-    height: 1px;
-    background: #cccccc; /* やや薄めの線 */
-    margin: 40px 0;
-}
-
-/* 前回の日記エントリのスタイルがあれば、それも色を調整 */
+/* 3. 日記エントリのコンテナ */
 .diary-entry {
     margin-bottom: 40px;
     padding: 20px;
-    /* 日記エントリ自体の背景を白（#ffffff）にすると、見やすくなります */
+    /* 日記エントリ自体の背景を白にすると、薄いグレーの背景とコントラストがついて見やすくなります */
     background-color: #ffffff; 
     border: 1px solid #e0e0e0; /* 薄い枠線 */
     border-radius: 5px;
 }
 
-/* ...その他のスタイル... */
+/* 4. 日付 (H2) のスタイル */
+.diary-entry h2 {
+    /* 日付のフォントサイズを本文より少しだけ大きく、目立ちすぎないように */
+    font-size: 1.1em; 
+    /* 太さを標準に戻す */
+    font-weight: normal; 
+    
+    color: #555555; /* 本文より少し濃い色 */
+    
+    /* 下線やパディングを削除 */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 0; /* 上部の余白を削除 */
+    margin-bottom: 15px; /* 下部に少し余白 */
+}
+
+/* 5. 本文 (P) のスタイル */
+p {
+    line-height: 1.6; /* 行間を広げて読みやすくする */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* 6. 区切り線 (HR) のスタイル */
+hr {
+    border: 0;
+    height: 1px;
+    background: #cccccc; /* やや薄めの線 */
+    margin: 40px 0; /* 上下に広い余白 */
+}
+
+/* 7. リンク (A) のスタイル */
+a {
+    color: #555555;
+    text-decoration: none; /* デフォルトの下線を消す */
+}
+a:hover {
+    text-decoration: underline; /* マウスオーバー時に下線を出す */
+}
+
+/* 8. フッター */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #aaaaaa; /* フッターの文字色は薄くする */
+    font-size: 0.8em;
+}
