@@ -90,34 +90,42 @@ blockquote {
     margin-right: 3em;
 }
 
-
 /* 9. スマートフォン対応 (@media query) */
 @media (max-width: 600px) {
     
     /* 1. 全体のパディングを調整 */
     body {
-        /* 左右のパディングを減らす */
         padding: 10px; 
+        /* ★★★ 本文のベースサイズを大きくするならここも調整できます ★★★ */
+        /* 例: 16px は一般的な標準サイズです */
+        font-size: 16px; 
     }
 
     /* 2. タイトルのフォントサイズを小さくする */
     h1 {
-        font-size: 1.5em; /* PCでの2emから小さくする */
+        font-size: 1.8em; /* 1.5emから少し大きくして見やすく */
+    }
+    
+    /* 3. 日付のフォントサイズを調整 */
+    .diary-entry h2 {
+        /* ★★★ 日付をPCサイズ(1.2em)よりも大きく、または同じサイズにする ★★★ */
+        font-size: 1.3em; 
     }
 
-    /* 3. 日記エントリの内部パディングを調整 */
+    /* 4. 本文のフォントサイズを調整 (もしbodyで設定したくない場合) */
+    p {
+        /* ★★★ PCでの設定(通常1em)を維持するか、さらに大きくする ★★★ */
+        font-size: 1em; /* bodyが16pxなら、本文は16pxで表示されます */
+    }
+
+    /* 5. 日記エントリの内部パディングを調整 */
     .diary-entry {
         padding: 15px;
     }
 
-    /* 4. 日付のフォントサイズを微調整 */
-    .diary-entry h2 {
-        font-size: 1.1em;
-    }
-
-    /* 5. 引用（blockquote）のインデントを減らす */
+    /* 6. 引用（blockquote）のインデントを減らす */
     blockquote {
-        margin-left: 1.5em; /* PCでの3emから減らす */
+        margin-left: 1.5em;
         margin-right: 1.5em;
     }
 }
