@@ -17,8 +17,6 @@ body {
 header {
     text-align: center;
     padding: 20px 0;
-    border-bottom: 2px solid #cccccc; /* 薄い区切り線 */
-    margin-bottom: 40px;
 }
 
 h1 {
