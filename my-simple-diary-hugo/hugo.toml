@@ -1,0 +1,14 @@
+baseURL = "https://my-simple-diary.pages.dev/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "日記"
+
+# raw HTML in Markdownを許可（既存記事のHTMLをそのまま生かす）
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# URLを安定させる
+[permalinks]
+  diary = "/diary/:slug/"
