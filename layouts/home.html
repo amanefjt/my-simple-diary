@@ -13,7 +13,7 @@
 
 <nav class="pagination" aria-label="ページ移動">
   {{ if $paginator.HasPrev }}
-    <a class="pagination-prev" href="{{ $paginator.Prev.URL }}">← 前の30件</a>
+    <a class="pagination-prev" href="{{ $paginator.Prev.URL }}">← previous</a>
   {{ end }}
 
   <span class="pagination-status">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
