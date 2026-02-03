@@ -12,3 +12,9 @@ title = "日記"
 # URLを安定させる
 [permalinks]
   diary = "/diary/:slug/"
+
+# ページネーション（トップの全文表示を30件ずつに分割）
+[pagination]
+  pagerSize = 30
+  path = "page"
+  disableAliases = false
