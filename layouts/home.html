@@ -1,9 +1,25 @@
 {{ define "main" }}
+{{/* トップページ：日記を30件ずつ（新しい順）に全文表示 */}}
 {{ $pages := where .Site.RegularPages "Section" "diary" }}
-{{ range $pages.ByDate.Reverse }}
+{{ $pages = $pages.ByDate.Reverse }}
+{{ $paginator := .Paginate $pages }}
+
+{{ range $paginator.Pages }}
 <article class="diary-entry">
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
   {{ .Content }}
 </article>
 {{ end }}
+
+<nav class="pagination" aria-label="ページ移動">
+  {{ if $paginator.HasPrev }}
+    <a class="pagination-prev" href="{{ $paginator.Prev.URL }}">← 前の30件</a>
+  {{ end }}
+
+  <span class="pagination-status">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+
+  {{ if $paginator.HasNext }}
+    <a class="pagination-next" href="{{ $paginator.Next.URL }}">次の30件 →</a>
+  {{ end }}
+</nav>
 {{ end }}
