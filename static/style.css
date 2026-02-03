@@ -133,3 +133,18 @@ blockquote {
         margin-right: 1.5em;
     }
 }
+/* 10. ページネーション */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0 10px;
+}
+.pagination a {
+  color: #888888;
+}
+.pagination-status {
+  color: #aaaaaa;
+  font-size: 0.9em;
+}
