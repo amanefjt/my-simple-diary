@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'content/diary/*.md' # 画像から確認できた正確なパス
+      - 'content/diary/*.md'
 
 jobs:
   post-to-bluesky:
@@ -25,29 +25,31 @@ jobs:
           ADDED_FILE=$(git diff --name-only --diff-filter=A HEAD^ HEAD | grep '^content/diary/' | head -n 1)
           
           if [ -z "$ADDED_FILE" ]; then
-            echo "No new diary file added in this push."
+            echo "No new diary file added."
             exit 0
           fi
 
-          # ファイル名（例: 2026-02-06）を抽出
+          # 1. URL用のファイル名（拡張子なし）を取得
           FILENAME=$(basename "$ADDED_FILE" .md)
-          
-          # 日本語の日付フォーマットを作成 (例: 2026年02月06日)
-          # %aは英語（Fri）になる可能性があるため、日本語環境を指定
-          POST_DATE=$(date -d "$FILENAME" "+%Y年%m月%d日" 2>/dev/null || echo "$FILENAME")
-          
-          # URLの組み立て (末尾にスラッシュを付与)
           DIARY_URL="https://my-simple-diary.pages.dev/diary/${FILENAME}/"
           
-          echo "date=$POST_DATE" >> $GITHUB_OUTPUT
+          # 2. ファイル内の "title: " 行から日記のタイトルを抽出
+          # 例: title: 2026年2月7日（土） -> 2026年2月7日（土）
+          # 前後の引用符やスペースを除去します
+          TITLE=$(grep '^title:' "$ADDED_FILE" | sed -E 's/^title:[[:space:]]*["'\'']?//; s/["'\'']?[[:space:]]*$//')
+
+          # もしタイトルが取れなかった場合のバックアップ
+          if [ -z "$TITLE" ]; then TITLE="$FILENAME"; fi
+          
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
           echo "url=$DIARY_URL" >> $GITHUB_OUTPUT
 
       - name: Send Bluesky Post
-        if: steps.file_info.outputs.date != ''
+        if: steps.file_info.outputs.title != ''
         uses: myConsciousness/bluesky-post@v5
         with:
           text: |
-            ${{ steps.file_info.outputs.date }}の日記が投稿されました
+            ${{ steps.file_info.outputs.title }}の日記が投稿されました
             ${{ steps.file_info.outputs.url }}
           identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
           password: ${{ secrets.BLUESKY_PASSWORD }}
