@@ -1,0 +1,53 @@
+name: Post to Bluesky on New Diary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/diary/*.md' # 画像から確認できた正確なパス
+
+jobs:
+  post-to-bluesky:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get New File Info
+        id: file_info
+        run: |
+          # 新規追加(A)されたファイルのみを特定
+          ADDED_FILE=$(git diff --name-only --diff-filter=A HEAD^ HEAD | grep '^content/diary/' | head -n 1)
+          
+          if [ -z "$ADDED_FILE" ]; then
+            echo "No new diary file added in this push."
+            exit 0
+          fi
+
+          # ファイル名（例: 2026-02-06）を抽出
+          FILENAME=$(basename "$ADDED_FILE" .md)
+          
+          # 日本語の日付フォーマットを作成 (例: 2026年02月06日)
+          # %aは英語（Fri）になる可能性があるため、日本語環境を指定
+          POST_DATE=$(date -d "$FILENAME" "+%Y年%m月%d日" 2>/dev/null || echo "$FILENAME")
+          
+          # URLの組み立て (末尾にスラッシュを付与)
+          DIARY_URL="https://my-simple-diary.pages.dev/diary/${FILENAME}/"
+          
+          echo "date=$POST_DATE" >> $GITHUB_OUTPUT
+          echo "url=$DIARY_URL" >> $GITHUB_OUTPUT
+
+      - name: Send Bluesky Post
+        if: steps.file_info.outputs.date != ''
+        uses: myConsciousness/bluesky-post@v5
+        with:
+          text: |
+            ${{ steps.file_info.outputs.date }}の日記が投稿されました
+            ${{ steps.file_info.outputs.url }}
+          identifier: ${{ secrets.BLUESKY_IDENTIFIER }}
+          password: ${{ secrets.BLUESKY_PASSWORD }}
