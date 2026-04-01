@@ -1,0 +1,31 @@
+baseURL = "https://your-site-url.pages.dev/"
+languageCode = "ja"
+defaultContentLanguage = "ja"
+title = "私のシンプル日記（テンプレート版）"
+
+# 著者・サイト情報（フォーク後に書き換えてください）
+[author]
+  name = "あなたの名前"
+  description = "ここに簡単な自己紹介を書きます。"
+
+[params]
+  description = "日々の記録を綴るシンプルな日記サイトです。"
+  authorName = "あなたの名前"
+  githubUser = "your-github-username"
+  twitterUser = "your-twitter-username"
+
+# raw HTML in Markdownを許可（既存記事のHTMLをそのまま生かす）
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# URLを安定させる
+[permalinks]
+  diary = "/diary/:slug/"
+
+# ページネーション（トップの全文表示を30件ずつに分割）
+[pagination]
+  pagerSize = 30
+  path = "page"
+  disableAliases = false

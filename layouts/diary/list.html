@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ range .Pages.ByDate.Reverse }}
+<article class="diary-entry">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{ .Content }}
+</article>
+{{ end }}
+{{ end }}
