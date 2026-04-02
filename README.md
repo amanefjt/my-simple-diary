@@ -65,11 +65,11 @@ graph TD
     C --> D[環境変数 HUGO_VERSION 設定]
     D --> E[ビルド開始 & 自動公開]
     E --> F[自分だけのURL完成!]
+```
 
 > [!IMPORTANT]  
 > **プロジェクト名の設定に関する注意**  
 > Cloudflare Pages では、ここで入力する「プロジェクト名」がそのままサイトのアドレス（`プロジェクト名.pages.dev`）になります。後から名前を変えることは難しいため、慎重に決めてください。もし後から変更したい場合は、**一度プロジェクトを削除して作り直すのが最も確実かつ迅速な方法**です。
-```
 
 ### 🌐 アドレス（URL）を好きな名前にするには？
 
@@ -96,22 +96,21 @@ title = "（ここにサイトのタイトルを書く）"
   description = "（タイトル下に表示される説明文）"
   githubUser = "（あなたのGitHubユーザー名）"
 ```
-75: 
-76: > [!TIP]
-77: > **タイトル下の説明文を変更するには？**: `hugo.toml` の `description = "..."` の部分を書き換えるだけで、サイトの印象をガラッと変えることができます。
-78: 
-79: ---
-80: 
-81: ## 🦋 BlueSky への自動投稿（オプション）
-82: 
-83: 日記を新しく公開した時に、自動的に BlueSky に通知を送ることができます。
-84: 
-85: 1. GitHub のリポジトリ画面で **[Settings]** ＞ **[Secrets and variables]** ＞ **[Actions]** を開きます。
-86: 2. **[New repository secret]** をクリックして、以下の 2 つを登録します。
-87:     - **Name**: `BLUESKY_IDENTIFIER` / **Value**: あなたのハンドル名（例: `xxx.bsky.social`）
-88:     - **Name**: `BLUESKY_PASSWORD` / **Value**: BlueSky の「アプリパスワード」
-89: 3. これで、`main` ブランチに新しい日記を追加するたびに、BlueSky へ自動投稿されます。
-90: 
+
+> [!TIP]
+> **タイトル下の説明文を変更するには？**: `hugo.toml` の `description = "..."` の部分を書き換えるだけで、サイトの印象をガラッと変えることができます。
+
+---
+
+## 🦋 BlueSky への自動投稿（オプション）
+
+日記を新しく公開した時に、自動的に BlueSky に通知を送ることができます。
+
+1. GitHub のリポジトリ画面で **[Settings]** ＞ **[Secrets and variables]** ＞ **[Actions]** を開きます。
+2. **[New repository secret]** をクリックして、以下の 2 つを登録します。
+    - **Name**: `BLUESKY_IDENTIFIER` / **Value**: あなたのハンドル名（例: `xxx.bsky.social`）
+    - **Name**: `BLUESKY_PASSWORD` / **Value**: BlueSky の「アプリパスワード」
+3. これで、`main` ブランチに新しい日記を追加するたびに、BlueSky へ自動投稿されます。
 
 ---
 
