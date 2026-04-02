@@ -2,6 +2,8 @@ baseURL = "https://your-site-url.pages.dev/"
 languageCode = "ja"
 defaultContentLanguage = "ja"
 title = "私のシンプル日記（テンプレート版）"
+publishFuture = true
+
 
 # 著者・サイト情報（フォーク後に書き換えてください）
 [author]
